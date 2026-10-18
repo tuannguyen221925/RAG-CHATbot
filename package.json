@@ -1,0 +1,36 @@
+{
+  "name": "big-rag",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "\".\\.ragvenv\\Scripts\\python.exe\" -m scripts.dev",
+    "dev:ui": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "start": "\".\\.ragvenv\\Scripts\\python.exe\" -m scripts.serve",
+    "dev:api": "\".\\.ragvenv\\Scripts\\python.exe\" -m scripts.serve --reload",
+    "db:setup": "\".\\.ragvenv\\Scripts\\python.exe\" -m scripts.setup_mysql",
+    "test:api": "\".\\.ragvenv\\Scripts\\python.exe\" -m pytest tests/test_web.py -q",
+    "test:ui": "node scripts/check_chat_render.mjs",
+    "test:client": "node scripts/check_api_client.mjs",
+    "test:import": "node scripts/check_import_progress.mjs",
+    "logs": "\".\\.ragvenv\\Scripts\\python.exe\" -m scripts.logs",
+    "logs:errors": "\".\\.ragvenv\\Scripts\\python.exe\" -m scripts.logs --name api-error",
+    "logs:dev": "\".\\.ragvenv\\Scripts\\python.exe\" -m scripts.logs --name dev"
+  },
+  "dependencies": {
+    "katex": "^0.19.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.1.0",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "esbuild": "^0.28.2",
+    "vite": "^7.0.0"
+  }
+}

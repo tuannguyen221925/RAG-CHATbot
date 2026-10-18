@@ -1,0 +1,53 @@
+.workspace .ws-import-progress {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid var(--chat-border);
+  border-radius: 14px;
+  background: var(--ws-soft);
+  color: var(--chat-text);
+}
+.ws-import-heading { display: flex; align-items: center; gap: 12px; }
+.ws-import-symbol { display: grid; place-items: center; flex: 0 0 40px; height: 40px; border-radius: 12px; background: var(--ws-selected); color: var(--chat-accent); }
+.ws-import-heading > div { flex: 1; min-width: 0; }
+.ws-import-heading b { display: block; font-size: 14px; line-height: 1.5; }
+.ws-import-heading div > span { display: block; margin-top: 4px; font-size: 11px; color: var(--ws-muted); }
+.ws-import-heading > strong { font-size: 18px; color: var(--chat-accent); font-variant-numeric: tabular-nums; }
+.ws-import-total { display: block; width: 100%; height: 8px; margin: 16px 0; border: 0; border-radius: 99px; overflow: hidden; appearance: none; background: var(--chat-border); color: var(--chat-accent); }
+.ws-import-total::-webkit-progress-bar { border-radius: 99px; background: var(--chat-border); }
+.ws-import-total::-webkit-progress-value { border-radius: 99px; background: var(--chat-accent); transition: width .35s ease; }
+.ws-import-total::-moz-progress-bar { border-radius: 99px; background: var(--chat-accent); }
+.ws-import-activity > div:first-child { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px 14px; font-size: 12px; line-height: 1.6; }
+.ws-import-activity time { font-size: 11px; color: var(--ws-muted); font-variant-numeric: tabular-nums; }
+.ws-import-live-track { height: 3px; margin: 10px 0; overflow: hidden; background: var(--chat-border); border-radius: 99px; }
+.ws-import-live-track i { display: block; width: 28%; height: 100%; border-radius: inherit; background: var(--chat-accent); animation: ws-import-moving 1.8s ease-in-out infinite; }
+.ws-import-live-track.is-uploading i { animation: none; transition: width .15s linear; }
+.ws-import-activity p, .ws-import-summary { margin: 10px 0 0; font-size: 11px; line-height: 1.7; color: var(--ws-muted); }
+.ws-import-files { list-style: none; padding: 0; margin: 16px 0 0; max-height: 230px; overflow-y: auto; }
+.ws-import-files li { display: flex; align-items: center; gap: 10px; padding: 11px 0; border-top: 1px solid var(--chat-border); font-size: 11px; color: var(--ws-muted); }
+.ws-import-files li > svg { flex-shrink: 0; }
+.ws-import-files li > div { flex: 1; min-width: 0; }
+.ws-import-files b { display: block; font-weight: 500; overflow-wrap: anywhere; line-height: 1.6; }
+.ws-import-files small { display: block; margin-top: 3px; overflow-wrap: anywhere; line-height: 1.6; }
+.ws-import-files li > span { flex: 0 0 auto; max-width: 42%; text-align: right; font-size: 10px; line-height: 1.6; }
+.ws-import-files li[data-status="processing"], .ws-import-files li[data-status="uploading"], .ws-import-files li[data-status="indexed"], .ws-import-files li[data-status="ready"] { color: var(--chat-accent); }
+.ws-import-files li[data-status="error"], .ws-import-progress.has-errors .ws-import-symbol { color: #b45335; }
+.workspace .ws-import-compact { display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: var(--ws-soft); border-bottom: 1px solid var(--chat-border); color: var(--chat-accent); flex-shrink: 0; }
+.ws-import-compact > svg { flex-shrink: 0; }
+.ws-import-compact > div { flex: 1; min-width: 0; }
+.ws-import-compact b { display: block; font-size: 12px; line-height: 1.5; }
+.ws-import-compact span { display: block; font-size: 10px; color: var(--ws-muted); margin-top: 3px; }
+.ws-import-compact .text-button { display: flex; align-items: center; gap: 3px; font-size: 11px; color: var(--chat-accent); }
+@keyframes ws-import-moving { 0% { transform: translateX(-110%); } 100% { transform: translateX(460%); } }
+@media (max-width: 600px) {
+  .workspace .ws-import-progress { padding: 14px; }
+  .ws-import-heading { gap: 8px; }
+  .ws-import-heading b { font-size: 12px; }
+  .ws-import-heading > strong { font-size: 16px; }
+  .ws-import-files li > span { max-width: 38%; font-size: 9px; }
+  .workspace .ws-import-compact { padding: 10px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ws-import-live-track i { animation: none; width: 100%; opacity: .6; }
+  .ws-import-total::-webkit-progress-value { transition: none; }
+  .ws-import-progress .spin, .ws-import-compact .spin { animation: none; }
+}

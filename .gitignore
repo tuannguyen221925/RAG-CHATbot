@@ -1,0 +1,17 @@
+.env
+.ragvenv/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+data/*
+!data/.gitkeep
+vector_db/*
+!vector_db/.gitkeep
+Release-*/
+*.log
+storage/
+node_modules/
+dist/

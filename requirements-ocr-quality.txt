@@ -1,0 +1,7 @@
+# Optional local document OCR, tested on Windows/Python 3.12.
+paddlepaddle>=3.0,<3.1
+paddleocr>=3.7,<3.8
+paddlex[ocr-core]>=3.7,<3.8
+pypdf>=6,<7
+# Chroma's optional Kubernetes client must share PaddleX's PyYAML==6.0.2.
+kubernetes>=28.1.0,<=36.0.0
